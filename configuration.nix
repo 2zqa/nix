@@ -89,6 +89,12 @@
     defaultEditor = true;
     vimAlias = true;
   };
+
+  # Enable dynamic linker to execute dynamic binaries.
+  # Needed for Zed to download and execute language servers.
+  # Needed for pre-commit to execute downloaded git hooks.
+  programs.nix-ld.enable = true;
+
   programs.git.config.init.defaultBranch = "main";
   virtualisation.docker.enable = true;
   services.flatpak.enable = true;
@@ -119,6 +125,7 @@
     gh
     chezmoi
     tree
+    zed-editor
   ];
 
   # This value determines the NixOS release from which the default
