@@ -117,6 +117,8 @@
     pyenv
     gnome-tweaks
     gh
+    chezmoi
+    tree
   ];
 
   # This value determines the NixOS release from which the default
