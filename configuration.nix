@@ -17,6 +17,14 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [
+      9300 # Google Quick Share
+    ];
+  };
+
+
   # Set your time zone.
   time.timeZone = "Europe/Amsterdam";
 
@@ -55,7 +63,7 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -114,18 +122,20 @@
   ];
   services.xserver.excludePackages = [ pkgs.xterm ];
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
     git
+    tree
     wl-clipboard
     neovim
-    pyenv
     gnome-tweaks
-    gh
     chezmoi
-    tree
+
+    # Development
+    gh
+    python313
     zed-editor
+    nixd # nix LSP
+    basedpyright
   ];
 
   # This value determines the NixOS release from which the default
