@@ -98,6 +98,16 @@
     vimAlias = true;
   };
 
+  # Enable fingerprint.
+  # Start the driver at boot
+  systemd.services.fprintd = {
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig.Type = "simple";
+  };
+
+  # Install the driver
+  services.fprintd.enable = true;
+
   # Enable dynamic linker to execute dynamic binaries.
   # Needed for Zed to download and execute language servers.
   # Needed for pre-commit to execute downloaded git hooks.
