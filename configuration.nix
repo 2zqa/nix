@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   nix.settings.experimental-features = "nix-command flakes";
@@ -17,12 +17,10 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [
-      9300 # Google Quick Share
-    ];
-  };
+  # networking.firewall = {
+  #   enable = true;
+  #   allowedTCPPorts = [];
+  # };
 
 
   # Set your time zone.
@@ -77,9 +75,6 @@
     isNormalUser = true;
     description = "Marijn Kok";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
-    packages = with pkgs; [
-    #  thunderbird
-    ];
   };
 
   # Marijns spul
