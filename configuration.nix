@@ -152,16 +152,18 @@
     gnome-tweaks
     chezmoi
 
-    # Apps
+    # apps
     thunderbird
     brave
     blender
+    pinta
     papers
     buffer
     shortwave
     kgx
     identity
     prismlauncher
+    signal-desktop
 
     # Development
     gh
