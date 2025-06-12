@@ -137,10 +137,13 @@
     file-roller
     geary
     gnome-tour
-
-    gnome-calendar gnome-contacts
-    gnome-font-viewer gnome-logs gnome-maps
-    gnome-system-monitor gnome-disk-utility gnome-connections
+    gnome-calendar
+    gnome-contacts
+    gnome-font-viewer
+    gnome-logs
+    gnome-maps
+    gnome-disk-utility
+    gnome-connections
   ];
   services.xserver.excludePackages = [ pkgs.xterm ];
 
