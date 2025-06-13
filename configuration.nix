@@ -6,7 +6,9 @@
 
 {
   nix.settings.experimental-features = "nix-command flakes";
-  imports = [];
+  imports = [
+    ./firefox.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -94,15 +96,6 @@
         fi
     fi
     '';
-  programs.firefox = {
-    enable = true;
-    languagePacks = [ "nl" "en-US" ];
-    preferences = {
-      "mousewheel.min_line_scroll_amount" = 180;
-      "mousewheel.default.delta_multiplier_x" = 30;
-      "mousewheel.default.delta_multiplier_y" = 30;
-    };
-  };
   programs.neovim = {
     enable = true;
     defaultEditor = true;
