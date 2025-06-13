@@ -14,7 +14,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "lonepine"; # Define your hostname.
+  networking.hostName = "lonepine";
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -60,7 +60,7 @@
   console.keyMap = "us-acentos";
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  services.printing.enable = false;
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -103,14 +103,21 @@
   };
 
   # Enable fingerprint.
-  # Start the driver at boot
+  services.fprintd.enable = true;
   systemd.services.fprintd = {
     wantedBy = [ "multi-user.target" ];
     serviceConfig.Type = "simple";
   };
 
-  # Install the driver
-  services.fprintd.enable = true;
+  # Hardware acceleration
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      #vpl-gpu-rt
+      intel-media-driver
+    ];
+  };
+  environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; };
 
   # Enable dynamic linker to execute dynamic binaries.
   # Needed for Zed to download and execute language servers.
@@ -169,7 +176,7 @@
     zed-editor
     nixd # nix LSP
     basedpyright
-    # Still needed for:
+    # vscodium is still needed for:
     #  - Better merge conflict resolvement
     vscodium
   ];
