@@ -8,6 +8,7 @@
   nix.settings.experimental-features = "nix-command flakes";
   imports = [
     ./firefox.nix
+    ./quietboot.nix
   ];
 
   # Bootloader.
