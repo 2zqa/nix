@@ -66,11 +66,11 @@
             installation_mode = "force_installed";
           };
         };
-  
+
         /* ---- PREFERENCES ---- */
         # Check about:config for options.
         Preferences = {
-          "general.autoScroll" = lock-true
+          "general.autoScroll" = lock-true;
           "browser.contentblocking.category" = { Value = "strict"; Status = "locked"; };
           "extensions.pocket.enabled" = lock-false;
           "browser.urlbar.showSearchSuggestionsFirst" = lock-false;
