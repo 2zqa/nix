@@ -1,20 +1,23 @@
 { config, pkgs, ... }:
 
-  let
-    lock-false = {
-      Value = false;
-      Status = "locked";
-    };
-    lock-true = {
-      Value = true;
-      Status = "locked";
-    };
-  in
+let
+  lock-false = {
+    Value = false;
+    Status = "locked";
+  };
+  lock-true = {
+    Value = true;
+    Status = "locked";
+  };
+in
 {
   programs = {
     firefox = {
       enable = true;
-      languagePacks = [ "nl" "en-US" ];
+      languagePacks = [
+        "nl"
+        "en-US"
+      ];
 
       autoConfig = ''
         pref("mousewheel.min_line_scroll_amount", 180);
@@ -22,13 +25,13 @@
         pref("mousewheel.default.delta_multiplier_y", 30);
       '';
 
-      /* ---- POLICIES ---- */
+      # ---- POLICIES ----
       # Check about:policies#documentation for options.
       policies = {
         DisableTelemetry = true;
         DisableFirefoxStudies = true;
         EnableTrackingProtection = {
-          Value= true;
+          Value = true;
           Locked = true;
           Cryptomining = true;
           Fingerprinting = true;
@@ -39,7 +42,7 @@
         DisplayBookmarksToolbar = "never"; # alternatives: "always" or "newtab"
         DisplayMenuBar = "default-off"; # alternatives: "always", "never" or "default-on"
 
-        /* ---- EXTENSIONS ---- */
+        # ---- EXTENSIONS ----
         # Check about:support for extension/add-on ID strings.
         # Valid strings for installation_mode are "allowed", "blocked",
         # "force_installed" and "normal_installed".
@@ -62,16 +65,19 @@
           };
           # KeyHub
           "keyhub@topicus.nl" = {
-            install_url = "https://addons.mozilla.org/firefox/downloads/latest/1password-x-password-manager/latest.xpi";
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/topicus-keyhub/latest.xpi";
             installation_mode = "force_installed";
           };
         };
 
-        /* ---- PREFERENCES ---- */
+        # ---- PREFERENCES ----
         # Check about:config for options.
         Preferences = {
           "general.autoScroll" = lock-true;
-          "browser.contentblocking.category" = { Value = "strict"; Status = "locked"; };
+          "browser.contentblocking.category" = {
+            Value = "strict";
+            Status = "locked";
+          };
           "extensions.pocket.enabled" = lock-false;
           "browser.urlbar.showSearchSuggestionsFirst" = lock-false;
           "browser.newtabpage.activity-stream.feeds.section.topstories" = lock-false;
