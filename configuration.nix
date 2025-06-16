@@ -173,6 +173,7 @@
     identity
     prismlauncher
     signal-desktop
+    picard
 
     # Development
     gh
