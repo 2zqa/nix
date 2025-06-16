@@ -148,6 +148,7 @@
   ];
   services.xserver.excludePackages = [ pkgs.xterm ];
 
+  hardware.i2c.enable = true;
   environment.systemPackages = with pkgs; [
     git
     tree
@@ -155,6 +156,7 @@
     neovim
     gnome-tweaks
     chezmoi
+    ddcutil
 
     # apps
     thunderbird
