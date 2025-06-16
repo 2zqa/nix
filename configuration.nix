@@ -25,7 +25,6 @@
   #   allowedTCPPorts = [];
   # };
 
-
   # Set your time zone.
   time.timeZone = "Europe/Amsterdam";
 
@@ -77,7 +76,11 @@
   users.users.marijnk = {
     isNormalUser = true;
     description = "Marijn Kok";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+    ];
   };
 
   # Marijns spul
@@ -96,7 +99,7 @@
         PS1="\[\033]2;\h:\u:\w\007\]$PS1"
         fi
     fi
-    '';
+  '';
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -118,7 +121,7 @@
       intel-media-driver
     ];
   };
-  environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; };
+  environment.sessionVariables.LIBVA_DRIVER_NAME = "iHD";
 
   # Enable dynamic linker to execute dynamic binaries.
   # Needed for Zed to download and execute language servers.
@@ -178,6 +181,7 @@
     python313
     zed-editor
     nixd # nix LSP
+    nixfmt-rfc-style
     basedpyright
     # vscodium is still needed for:
     #  - Better merge conflict resolvement
