@@ -169,7 +169,7 @@
     papers
     buffer
     shortwave
-    kgx
+    musicpod
     identity
     prismlauncher
     signal-desktop
