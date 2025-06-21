@@ -28,6 +28,21 @@
     ./quietboot.nix
   ];
 
+  nixpkgs.overlays = [
+    (final: prev: {
+      # Add volume slider
+      # https://gitlab.gnome.org/GNOME/gnome-music/-/merge_requests/1058
+      gnome-music = prev.gnome-music.overrideAttrs (old: {
+        patches = (old.patches or [ ]) ++ [
+          (prev.fetchpatch {
+            url = "https://gitlab.gnome.org/alpeshjamgade/gnome-music/-/commit/dab981a5a20db05f6c3e7abe362181b7ae835736.patch";
+            hash = "sha256-UkZ3bMMmjSJAM5lp1okqAwO0Pukx/zfo6m600LoQQlw=";
+          })
+        ];
+      });
+    })
+  ];
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -186,7 +201,6 @@
     papers
     buffer
     shortwave
-    musicpod
     identity
     prismlauncher
     signal-desktop
