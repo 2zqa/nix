@@ -175,10 +175,12 @@
     signal-desktop
     picard
 
-    # Development
+    # development
     gh
     postgresql
     go
+    zulu24
+    jetbrains.idea-community
     python313
     zed-editor
     nixd # nix LSP
