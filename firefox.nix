@@ -17,6 +17,7 @@ in
         "en-US"
       ];
 
+      # Configurations which can't be set using policies
       autoConfig = ''
         pref("mousewheel.min_line_scroll_amount", 180);
         pref("mousewheel.default.delta_multiplier_x", 30);
@@ -62,7 +63,6 @@ in
           };
         };
 
-        # ---- PREFERENCES ----
         # Check about:config for options.
         Preferences = {
           "general.autoScroll" = lock-true;
