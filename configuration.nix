@@ -205,6 +205,7 @@
     prismlauncher
     signal-desktop
     picard
+    (callPackage ./simplenote.nix { })
 
     # development
     gh
