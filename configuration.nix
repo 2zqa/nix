@@ -178,7 +178,6 @@
     gnome-font-viewer
     gnome-logs
     gnome-maps
-    gnome-disk-utility
     gnome-connections
   ];
   services.xserver.excludePackages = [ pkgs.xterm ];
