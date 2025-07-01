@@ -193,6 +193,7 @@
     ddcutil
 
     # apps
+    rpi-imager
     thunderbird
     brave
     blender
