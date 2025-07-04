@@ -193,6 +193,7 @@
     ddcutil
 
     # apps
+    easyeffects
     rpi-imager
     thunderbird
     brave
@@ -221,6 +222,7 @@
     # vscodium is still needed for:
     #  - Better merge conflict resolvement
     vscodium
+    dbgate
   ];
 
   # This value determines the NixOS release from which the default
