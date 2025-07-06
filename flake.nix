@@ -3,10 +3,11 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
   };
 
   outputs =
-    { nixpkgs, ... }:
+    { nixpkgs, nixpkgs-unstable, ... }:
     {
       nixosConfigurations = {
         # This should correspond to the hostname of the machine
@@ -15,6 +16,13 @@
           modules = [
             ./configuration.nix
             ./hardware-configuration.nix
+            {
+              nixpkgs.overlays = [
+                (final: prev: {
+                  unstable = nixpkgs-unstable.legacyPackages.${prev.system};
+                })
+              ];
+            }
           ];
         };
       };

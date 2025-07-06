@@ -210,12 +210,13 @@
 
     # development
     gh
+    uv
     postgresql
     go
     zulu24
     jetbrains.idea-community
     python313
-    zed-editor
+    unstable.zed-editor
     nixd # nix LSP
     nixfmt-rfc-style
     basedpyright
