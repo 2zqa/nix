@@ -5,6 +5,11 @@
 { pkgs, ... }:
 
 {
+  imports = [
+    ./modules/firefox.nix
+    ./modules/quietboot.nix
+  ];
+
   nix = {
     settings = {
       auto-optimise-store = true;
@@ -23,10 +28,6 @@
 
     optimise.automatic = true;
   };
-  imports = [
-    ./firefox.nix
-    ./quietboot.nix
-  ];
 
   nixpkgs.overlays = [
     (final: prev: {
@@ -51,11 +52,6 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-
-  # networking.firewall = {
-  #   enable = true;
-  #   allowedTCPPorts = [];
-  # };
 
   # Set your time zone.
   time.timeZone = "Europe/Amsterdam";
@@ -115,7 +111,6 @@
     ];
   };
 
-  # Marijns spul
   programs.bash.promptInit = ''
     # Provide a nice prompt if the terminal supports it.
     if [ "$TERM" != "dumb" ] || [ -n "$INSIDE_EMACS" ]; then
@@ -206,10 +201,9 @@
     prismlauncher
     signal-desktop
     picard
-    (callPackage ./simplenote.nix { })
+    (callPackage ./derivations/simplenote.nix { })
 
     # development
-    gh
     uv
     postgresql
     go
