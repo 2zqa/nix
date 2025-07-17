@@ -186,8 +186,11 @@
     gnome-tweaks
     chezmoi
     ddcutil
+    ffmpeg
 
     # apps
+    clapgrep
+    authenticator
     easyeffects
     rpi-imager
     thunderbird
@@ -204,6 +207,8 @@
     (callPackage ./derivations/simplenote.nix { })
 
     # development
+    gnumake
+    natscli
     uv
     postgresql
     go
