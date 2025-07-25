@@ -157,8 +157,7 @@
 
   programs.git.config.init.defaultBranch = "main";
   virtualisation.docker.enable = true;
-  # Flatpak icons are broken: https://github.com/NixOS/nixpkgs/issues/404619
-  #services.flatpak.enable = true;
+  services.flatpak.enable = true;
   environment.gnome.excludePackages = with pkgs; [
     epiphany
     simple-scan
@@ -207,6 +206,7 @@
     (callPackage ./derivations/simplenote.nix { })
 
     # development
+    waydroid
     gnumake
     natscli
     uv
