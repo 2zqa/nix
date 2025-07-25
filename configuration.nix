@@ -157,6 +157,7 @@
 
   programs.git.config.init.defaultBranch = "main";
   virtualisation.docker.enable = true;
+  virtualisation.waydroid.enable = true;
   services.flatpak.enable = true;
   environment.gnome.excludePackages = with pkgs; [
     epiphany
