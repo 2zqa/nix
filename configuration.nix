@@ -187,8 +187,11 @@
     chezmoi
     ddcutil
     ffmpeg
+    yt-dlp
 
     # apps
+    showtime
+    gnome-sound-recorder
     clapgrep
     authenticator
     easyeffects
@@ -207,6 +210,7 @@
     (callPackage ./derivations/simplenote.nix { })
 
     # development
+    hugo
     waydroid
     gnumake
     natscli
@@ -222,7 +226,7 @@
     basedpyright
     # vscodium is still needed for:
     #  - Better merge conflict resolvement
-    vscodium
+    unstable.vscodium
     dbgate
   ];
 
