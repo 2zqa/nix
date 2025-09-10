@@ -211,6 +211,7 @@
 
     # development
     hugo
+    zola
     waydroid
     gnumake
     natscli
