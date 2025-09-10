@@ -8,6 +8,7 @@
   imports = [
     ./modules/firefox.nix
     ./modules/quietboot.nix
+    ./modules/printing.nix
   ];
 
   nix = {
@@ -88,7 +89,7 @@
   console.keyMap = "us-acentos";
 
   # Enable CUPS to print documents.
-  services.printing.enable = false;
+  printing-module.enable = false;
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
