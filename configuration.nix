@@ -221,7 +221,7 @@
     go
     zulu24
     jetbrains.idea-community
-    python313
+    unstable.python313
     unstable.zed-editor
     nixd # nix LSP
     nixfmt-rfc-style
