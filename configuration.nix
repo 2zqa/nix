@@ -151,7 +151,8 @@
   };
   environment.sessionVariables.LIBVA_DRIVER_NAME = "iHD";
 
-  # Don't ask for SSH passphrase every time
+  # Don't ask for SSH passphrase every time. Maybe in future:
+  # services.gnome.gcr-ssh-agent.enable = true;
   programs.ssh.startAgent = true;
 
   # Enable dynamic linker to execute dynamic binaries.
