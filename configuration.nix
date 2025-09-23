@@ -151,6 +151,9 @@
   };
   environment.sessionVariables.LIBVA_DRIVER_NAME = "iHD";
 
+  # Don't ask for SSH passphrase every time
+  programs.ssh.startAgent = true;
+
   # Enable dynamic linker to execute dynamic binaries.
   # Needed for Zed to download and execute language servers.
   # Needed for pre-commit to execute downloaded git hooks.
