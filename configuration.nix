@@ -215,6 +215,7 @@
     (callPackage ./derivations/simplenote.nix { })
 
     # development
+    gnupg
     hugo
     zola
     waydroid
