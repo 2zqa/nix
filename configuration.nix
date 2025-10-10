@@ -79,6 +79,9 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
+  # Enable Ozone Wayland support in Chromium and Electron based applications.
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -89,7 +92,7 @@
   console.keyMap = "us-acentos";
 
   # Enable CUPS to print documents.
-  printing-module.enable = false;
+  printing-module.enable = true;
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -185,6 +188,7 @@
   hardware.i2c.enable = true;
   environment.systemPackages = with pkgs; [
     git
+    unstable.flutter332
     tree
     wl-clipboard
     neovim
@@ -193,8 +197,15 @@
     ddcutil
     ffmpeg
     yt-dlp
+    gnomeExtensions.unblank
 
     # apps
+    gnome-calendar
+    popsicle
+    libreoffice
+    eyedropper
+    apostrophe
+    upscayl
     showtime
     gnome-sound-recorder
     clapgrep
@@ -203,7 +214,6 @@
     rpi-imager
     thunderbird
     brave
-    blender
     pinta
     papers
     buffer
@@ -226,6 +236,7 @@
     go
     zulu24
     jetbrains.idea-community
+    nodejs_22
     unstable.python313
     unstable.zed-editor
     nixd # nix LSP
