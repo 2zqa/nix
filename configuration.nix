@@ -188,8 +188,12 @@
   hardware.i2c.enable = true;
   environment.systemPackages = with pkgs; [
     git
-    unstable.flutter332
+    unstable.flutter338
     tree
+    gcc
+    android-tools
+    kubectl
+    kubelogin-oidc
     wl-clipboard
     neovim
     gnome-tweaks
@@ -199,8 +203,11 @@
     yt-dlp
     gnomeExtensions.unblank
 
+    # fonts
+    lora
+
     # apps
-    gnome-calendar
+    inkscape
     popsicle
     libreoffice
     eyedropper
@@ -211,7 +218,6 @@
     clapgrep
     authenticator
     easyeffects
-    rpi-imager
     thunderbird
     brave
     pinta
@@ -231,19 +237,18 @@
     waydroid
     gnumake
     natscli
-    uv
+    unstable.uv
+    unstable.ty
     postgresql
     go
     zulu24
     jetbrains.idea-community
     nodejs_22
-    unstable.python313
+    unstable.python314
     unstable.zed-editor
     nixd # nix LSP
     nixfmt-rfc-style
     basedpyright
-    # vscodium is still needed for:
-    #  - Better merge conflict resolvement
     unstable.vscodium
     dbgate
   ];
