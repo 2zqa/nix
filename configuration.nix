@@ -9,6 +9,7 @@
     ./modules/firefox.nix
     ./modules/quietboot.nix
     ./modules/printing.nix
+    ./modules/gnome.nix
   ];
 
   nix = {
@@ -29,21 +30,6 @@
 
     optimise.automatic = true;
   };
-
-  nixpkgs.overlays = [
-    (final: prev: {
-      # Add volume slider
-      # https://gitlab.gnome.org/GNOME/gnome-music/-/merge_requests/1058
-      gnome-music = prev.gnome-music.overrideAttrs (old: {
-        patches = (old.patches or [ ]) ++ [
-          (prev.fetchpatch {
-            url = "https://gitlab.gnome.org/alpeshjamgade/gnome-music/-/commit/dab981a5a20db05f6c3e7abe362181b7ae835736.patch";
-            hash = "sha256-UkZ3bMMmjSJAM5lp1okqAwO0Pukx/zfo6m600LoQQlw=";
-          })
-        ];
-      });
-    })
-  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -74,10 +60,7 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  gnome-module.enable = true;
 
   # Enable Ozone Wayland support in Chromium and Electron based applications.
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -154,8 +137,6 @@
   };
   environment.sessionVariables.LIBVA_DRIVER_NAME = "iHD";
 
-  # Don't ask for SSH passphrase every time. Maybe in future:
-  # services.gnome.gcr-ssh-agent.enable = true;
   programs.ssh.startAgent = true;
 
   # Enable dynamic linker to execute dynamic binaries.
@@ -167,22 +148,7 @@
   virtualisation.docker.enable = true;
   virtualisation.waydroid.enable = true;
   services.flatpak.enable = true;
-  environment.gnome.excludePackages = with pkgs; [
-    epiphany
-    simple-scan
-    totem
-    yelp
-    evince
-    file-roller
-    geary
-    gnome-tour
-    gnome-calendar
-    gnome-contacts
-    gnome-font-viewer
-    gnome-logs
-    gnome-maps
-    gnome-connections
-  ];
+
   services.xserver.excludePackages = [ pkgs.xterm ];
 
   hardware.i2c.enable = true;
@@ -197,12 +163,10 @@
     kubelogin-oidc
     wl-clipboard
     neovim
-    gnome-tweaks
     chezmoi
     ddcutil
     ffmpeg
     yt-dlp
-    gnomeExtensions.unblank
 
     # fonts
     lora
