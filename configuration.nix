@@ -188,6 +188,7 @@
   hardware.i2c.enable = true;
   environment.systemPackages = with pkgs; [
     git
+    delta # beautiful git diffs
     unstable.flutter338
     tree
     gcc
