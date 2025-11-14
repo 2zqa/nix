@@ -232,9 +232,8 @@
     (callPackage ./derivations/simplenote.nix { })
 
     # development
+    gemini-cli
     gnupg
-    hugo
-    zola
     waydroid
     gnumake
     natscli
