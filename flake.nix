@@ -12,14 +12,14 @@
       nixosConfigurations = {
         # This should correspond to the hostname of the machine
         lonepine = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
           modules = [
             ./configuration.nix
             ./hardware-configuration.nix
             {
+              nixpkgs.hostPlatform = "x86_64-linux";
               nixpkgs.overlays = [
                 (final: prev: {
-                  unstable = nixpkgs-unstable.legacyPackages.${prev.system};
+                  unstable = nixpkgs-unstable.legacyPackages.${prev.stdenv.hostPlatform.system};
                 })
               ];
             }
