@@ -151,14 +151,8 @@
 
   hardware.i2c.enable = true;
   environment.systemPackages = with pkgs; [
-    git
-    delta # beautiful git diffs
-    unstable.flutter338
     tree
-    gcc
     android-tools
-    kubectl
-    kubelogin-oidc
     wl-clipboard
     neovim
     chezmoi
@@ -170,7 +164,6 @@
     lora
 
     # apps
-    gnome-obfuscate
     inkscape
     popsicle
     libreoffice
@@ -178,6 +171,7 @@
     apostrophe
     upscayl
     showtime
+    gnome-obfuscate
     gnome-sound-recorder
     clapgrep
     authenticator
@@ -195,6 +189,12 @@
     (callPackage ./derivations/simplenote.nix { })
 
     # development
+    git
+    delta # beautiful git diffs
+    unstable.flutter338
+    gcc
+    kubectl
+    kubelogin-oidc
     gnupg
     waydroid
     gnumake
