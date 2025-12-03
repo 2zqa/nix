@@ -17,9 +17,6 @@ with lib;
     services.xserver.displayManager.gdm.enable = true;
     services.xserver.desktopManager.gnome.enable = true;
 
-    # Don't ask for SSH passphrase every time. Maybe in future:
-    # services.gnome.gcr-ssh-agent.enable = true;
-
     environment.gnome.excludePackages = with pkgs; [
       epiphany
       simple-scan

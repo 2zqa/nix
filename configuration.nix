@@ -137,8 +137,6 @@
   };
   environment.sessionVariables.LIBVA_DRIVER_NAME = "iHD";
 
-  programs.ssh.startAgent = true;
-
   # Enable dynamic linker to execute dynamic binaries.
   # Needed for Zed to download and execute language servers.
   # Needed for pre-commit to execute downloaded git hooks.
@@ -197,22 +195,18 @@
     (callPackage ./derivations/simplenote.nix { })
 
     # development
-    unstable.gemini-cli
     gnupg
     waydroid
     gnumake
     natscli
     unstable.uv
-    unstable.ty
     postgresql
     go
-    zulu24
-    jetbrains.idea-community
     nodejs_22
     unstable.python314
     unstable.zed-editor
     nixd # nix LSP
-    nixfmt-rfc-style
+    nixfmt
     basedpyright
     unstable.vscodium
     dbgate
