@@ -8,11 +8,11 @@
 
 let
   pname = "simplenote";
-  version = "2.23.2";
+  version = "2.24.0";
 
   src = fetchurl {
     url = "https://github.com/Automattic/simplenote-electron/releases/download/v${version}/Simplenote-linux-${version}-x86_64.AppImage";
-    hash = "sha512-m2Z1XlIdnxMgnHu6YWKZAp4Nwe1UaOyodtiKhy4/xvPwU2c8z4iBQHjgPoeAwnWJNQ/9JazPgBoP7W5oIMHLCg==";
+    hash = "sha512-G4+fXk/8nF3ObZIIBkcQpKT7mfquidPvJFmnUM/A0zaNopZwovykxbyDpWCpglupJVv7Fc60v46ZMM38EbhboA==";
   };
 
   appimageContents = appimageTools.extract { inherit pname version src; };
