@@ -172,6 +172,7 @@
     lora
 
     # apps
+    gnome-obfuscate
     inkscape
     popsicle
     libreoffice
@@ -196,7 +197,7 @@
     (callPackage ./derivations/simplenote.nix { })
 
     # development
-    gemini-cli
+    unstable.gemini-cli
     gnupg
     waydroid
     gnumake
