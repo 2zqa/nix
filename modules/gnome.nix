@@ -20,10 +20,7 @@ with lib;
     environment.gnome.excludePackages = with pkgs; [
       epiphany
       simple-scan
-      totem
       yelp
-      evince
-      file-roller
       geary
       gnome-tour
       gnome-calendar

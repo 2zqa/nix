@@ -168,14 +168,11 @@
     popsicle
     libreoffice
     eyedropper
-    apostrophe
     upscayl
     showtime
     gnome-obfuscate
     gnome-sound-recorder
     clapgrep
-    authenticator
-    easyeffects
     thunderbird
     brave
     pinta
