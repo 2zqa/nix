@@ -48,6 +48,7 @@ with lib;
 
     environment.systemPackages = with pkgs; [
       gnome-tweaks
+      gnome-extension-manager
       gnomeExtensions.unblank
       gnomeExtensions.brightness-control-using-ddcutil
     ];

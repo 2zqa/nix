@@ -39,6 +39,9 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.networkmanager.plugins = with pkgs; [
+    networkmanager-openvpn
+  ];
 
   # Set your time zone.
   time.timeZone = "Europe/Amsterdam";

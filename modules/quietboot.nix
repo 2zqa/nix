@@ -1,8 +1,4 @@
 {
-  lib,
-  ...
-}:
-{
   boot = {
     initrd.systemd.enable = true;
     plymouth.enable = true;
@@ -24,12 +20,4 @@
     # It will just not appear on screen unless a key is pressed
     loader.timeout = 0;
   };
-
-  # Workaround  https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
-  # TODO: remove once fix lands in stable?
-  systemd.services = {
-    "autovt@tty1".enable = lib.mkForce false;
-    "getty@tty1".enable = lib.mkForce false;
-  };
-
 }
