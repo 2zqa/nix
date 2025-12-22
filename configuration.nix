@@ -10,6 +10,7 @@
     ./modules/quietboot.nix
     ./modules/printing.nix
     ./modules/gnome.nix
+    ./modules/cosmic.nix
   ];
 
   nix = {
@@ -64,6 +65,7 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   gnome-module.enable = true;
+  cosmic-module.enable = true;
 
   # Enable Ozone Wayland support in Chromium and Electron based applications.
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
