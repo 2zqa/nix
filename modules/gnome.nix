@@ -13,9 +13,57 @@ with lib;
   };
 
   config = mkIf config.gnome-module.enable {
-    # Enable the GNOME Desktop Environment.
     services.displayManager.gdm.enable = true;
-    services.desktopManager.gnome.enable = true;
+    services.desktopManager.gnome = {
+      enable = true;
+      extraGSettingsOverrides = ''
+        [org/gnome/desktop/input-sources]
+        xkb-options=['ctrl:nocaps']
+
+        [org/gnome/desktop/peripherals/touchpad]
+        disable-while-typing=false
+
+        [org/gnome/desktop/privacy]
+        recent-files-max-age=7
+        remove-old-temp-files=true
+        remove-old-trash-files=true
+
+        # Three minute screen timeout, with 10s grace period
+        [org/gnome/desktop/screensaver]
+        lock-delay=uint32 10
+
+        [org/gnome/desktop/session]
+        idle-delay=uint32 170
+
+        [org/gnome/desktop/wm/keybindings]
+        # Remove unused ctrl+alt+shift+up/down keybinds
+        move-to-workspace-down=@as []
+        move-to-workspace-up=@as []
+        # Alt+tab for window switching
+        switch-windows=['<Alt>Tab']
+        switch-windows-backward=['<Shift><Alt>Tab']
+        switch-applications=@as []
+        switch-applications-backward=@as []
+
+        [org/gnome/desktop/wm/preferences]
+        resize-with-right-button=true
+
+        [org/gnome/mutter]
+        dynamic-workspaces=true
+        experimental-features=['scale-monitor-framebuffer']
+        workspaces-only-on-primary=true
+
+        [org/gnome/settings-daemon/plugins/media-keys]
+        play=['<Shift><Control>space']
+      '';
+    };
+
+    environment.systemPackages = with pkgs; [
+      gnome-tweaks
+      gnome-extension-manager
+      gnomeExtensions.unblank
+      gnomeExtensions.brightness-control-using-ddcutil
+    ];
 
     environment.gnome.excludePackages = with pkgs; [
       epiphany
@@ -31,9 +79,9 @@ with lib;
       gnome-connections
     ];
 
+    # Add volume slider
     nixpkgs.overlays = [
       (final: prev: {
-        # Add volume slider
         gnome-music = prev.gnome-music.overrideAttrs (old: {
           patches = (old.patches or [ ]) ++ [
             (prev.fetchpatch {
@@ -43,13 +91,6 @@ with lib;
           ];
         });
       })
-    ];
-
-    environment.systemPackages = with pkgs; [
-      gnome-tweaks
-      gnome-extension-manager
-      gnomeExtensions.unblank
-      gnomeExtensions.brightness-control-using-ddcutil
     ];
   };
 }
