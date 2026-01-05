@@ -11,6 +11,7 @@
     ./modules/printing.nix
     ./modules/gnome.nix
     ./modules/cosmic.nix
+    ./modules/ptyxis-generic-icon.nix
   ];
 
   nix = {
@@ -155,6 +156,7 @@
   services.xserver.excludePackages = [ pkgs.xterm ];
 
   hardware.i2c.enable = true;
+  ptyxis-generic-icon-module.enable = true;
   environment.systemPackages = with pkgs; [
     tree
     android-tools
@@ -169,6 +171,7 @@
     lora
 
     # apps
+    ptyxis
     inkscape
     popsicle
     libreoffice

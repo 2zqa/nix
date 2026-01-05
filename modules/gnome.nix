@@ -77,6 +77,7 @@ with lib;
       gnome-logs
       gnome-maps
       gnome-connections
+      gnome-console
     ];
 
     # Add volume slider
