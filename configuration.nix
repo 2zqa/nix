@@ -188,6 +188,7 @@
     prismlauncher
     signal-desktop
     picard
+    jmc2obj
     (callPackage ./derivations/simplenote.nix { })
 
     # development
