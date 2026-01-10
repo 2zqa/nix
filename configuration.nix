@@ -156,7 +156,7 @@
   services.xserver.excludePackages = [ pkgs.xterm ];
 
   hardware.i2c.enable = true;
-  ptyxis-generic-icon-module.enable = true;
+  ptyxis-generic-icon-module.enable = false;
   environment.systemPackages = with pkgs; [
     tree
     android-tools
@@ -171,7 +171,6 @@
     lora
 
     # apps
-    ptyxis
     inkscape
     popsicle
     libreoffice
