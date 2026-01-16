@@ -3,6 +3,11 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { pkgs, ... }:
+let
+  jdkWithFX = pkgs.openjdk.override {
+    enableJavaFX = true;
+  };
+in
 
 {
   imports = [
@@ -208,6 +213,7 @@
     postgresql
     go
     nodejs_22
+    jdkWithFX
     unstable.python314
     unstable.zed-editor
     nixd # nix LSP
