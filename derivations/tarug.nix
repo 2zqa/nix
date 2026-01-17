@@ -28,9 +28,8 @@ let
     src = fetchFromGitHub {
       owner = "pganalyze";
       repo = "libpg_query";
-      rev = "v${version}";
+      rev = "${version}";
       hash = "sha256-hwF3kowuMmc1eXMdvhoCpBxT6++wp29MRYhy4S5Jhfg=";
-      fetchSubmodules = true;
     };
 
     nativeBuildInputs = [ pkg-config ];
@@ -107,6 +106,7 @@ let
       repo = "pg_query_vala";
       rev = "807ad2773c43c9415b361e15cf51422f5123406f";
       hash = "sha256-udgLxNVHStTky0MH40bxwfBgcGJCLfABCeqxsbn4bzg=";
+      fetchSubmodules = true;
     };
 
     nativeBuildInputs = [
