@@ -56,7 +56,6 @@ appimageTools.wrapType2 {
     homepage = "https://github.com/Automattic/simplenote-electron";
     license = lib.licenses.gpl2Plus;
     platforms = [ "x86_64-linux" ];
-    maintainers = with lib.maintainers; [ josephfinlayson ];
     changelog = "https://github.com/Automattic/simplenote-electron/releases/tag/v${version}/RELEASE-NOTES.md";
   };
 }
