@@ -198,6 +198,7 @@ in
     jmc2obj
     (callPackage ./derivations/simplenote.nix { })
     (callPackage ./derivations/avvie.nix { })
+    (callPackage ./derivations/tarug.nix { })
 
     # development
     git
