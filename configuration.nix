@@ -197,6 +197,7 @@ in
     picard
     jmc2obj
     (callPackage ./derivations/simplenote.nix { })
+    (callPackage ./derivations/avvie.nix { })
 
     # development
     git
