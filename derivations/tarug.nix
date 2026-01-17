@@ -2,7 +2,6 @@
   lib,
   stdenv,
   fetchFromGitHub,
-  fetchgit,
   fetchurl,
   meson,
   ninja,
@@ -175,7 +174,7 @@ stdenv.mkDerivation (finalAttrs: {
     homepage = "https://github.com/ppvan/tarug";
     license = lib.licenses.gpl3Only;
     platforms = lib.platforms.linux;
-    maintainers = with lib.maintainers; [ ];
+    maintainers = [ ];
     mainProgram = "tarug";
   };
 })

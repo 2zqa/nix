@@ -60,6 +60,7 @@ stdenv.mkDerivation (finalAttrs: {
     homepage = "https://github.com/Taiko2k/Avvie";
     license = with lib.licenses; [ gpl3Only ];
     platforms = lib.platforms.linux;
+    maintainers = [ ];
     mainProgram = "avvie";
   };
 })
