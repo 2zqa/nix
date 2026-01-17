@@ -32,7 +32,7 @@ in
 
     gc = {
       automatic = true;
-      options = "--delete-older-than-5d";
+      # options = "--delete-older-than-5d";
     };
 
     optimise.automatic = true;
@@ -176,6 +176,7 @@ in
     lora
 
     # apps
+    pixelorama
     inkscape
     popsicle
     libreoffice
@@ -199,6 +200,7 @@ in
     (callPackage ./derivations/simplenote.nix { })
     (callPackage ./derivations/avvie.nix { })
     (callPackage ./derivations/tarug.nix { })
+    (callPackage ./derivations/dynamic-wallpaper.nix { })
 
     # development
     git
