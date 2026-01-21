@@ -205,7 +205,7 @@ in
     # development
     git
     delta # beautiful git diffs
-    unstable.flutter338
+    #unstable.flutter338
     gcc
     kubectl
     kubelogin-oidc
