@@ -202,6 +202,7 @@ in
     (callPackage ./derivations/avvie.nix { })
     (callPackage ./derivations/tarug.nix { })
     (callPackage ./derivations/dynamic-wallpaper.nix { })
+    (callPackage ./derivations/edex-ui.nix { })
 
     # development
     git
