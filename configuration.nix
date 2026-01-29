@@ -160,17 +160,8 @@ in
   services.flatpak.enable = true;
 
   # Allow Docker containers to reach host services
-  # Accepts traffic from all Docker bridge interfaces (docker0, br-*, etc.)
-  networking.firewall = {
-    extraCommands = ''
-      iptables -I nixos-fw 1 -i br+ -j ACCEPT
-      iptables -I nixos-fw 1 -i docker0 -j ACCEPT
-    '';
-    extraStopCommands = ''
-      iptables -D nixos-fw -i br+ -j ACCEPT || true
-      iptables -D nixos-fw -i docker0 -j ACCEPT || true
-    '';
-  };
+  # https://github.com/NixOS/nixpkgs/issues/417641#issuecomment-3403484920
+  networking.firewall.trustedInterfaces = [ "br+" ];
 
   services.xserver.excludePackages = [ pkgs.xterm ];
 
