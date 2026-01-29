@@ -185,6 +185,8 @@ in
     ddcutil
     ffmpeg
     yt-dlp
+    adw-gtk3
+    rclone
 
     # fonts
     lora
