@@ -195,6 +195,7 @@ in
     lora
 
     # apps
+    gradia
     pixelorama
     inkscape
     popsicle
