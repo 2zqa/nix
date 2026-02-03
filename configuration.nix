@@ -198,7 +198,7 @@ in
 
     # apps
     recordbox
-    rustdesk
+    rustdesk-flutter
     gradia
     pixelorama
     inkscape
