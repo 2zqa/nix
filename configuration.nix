@@ -190,11 +190,15 @@ in
     yt-dlp
     adw-gtk3
     rclone
+    filen-cli
+    fuse3
 
     # fonts
     lora
 
     # apps
+    recordbox
+    rustdesk
     gradia
     pixelorama
     inkscape
