@@ -179,6 +179,18 @@ in
 
   hardware.i2c.enable = true;
   ptyxis-generic-icon-module.enable = false;
+  nixpkgs.overlays = [
+    (final: prev: {
+      gradia = prev.gradia.overrideAttrs (old: {
+        patches = (old.patches or [ ]) ++ [
+          (prev.fetchpatch {
+            url = "https://github.com/sonicnkt/Gradia/commit/f51f0fdeff9272fef77936dbe3c769bb4667d365.patch";
+            hash = "sha256-06FGFGpdPtlxEgK457pIrG6+ziNe7KJtPBEnCmJD2TU=";
+          })
+        ];
+      });
+    })
+  ];
   environment.systemPackages = with pkgs; [
     tree
     android-tools
