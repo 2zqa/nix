@@ -209,6 +209,7 @@ in
     lora
 
     # apps
+    authenticator
     recordbox
     rustdesk-flutter
     gradia
