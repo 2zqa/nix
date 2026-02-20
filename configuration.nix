@@ -204,11 +204,13 @@ in
     rclone
     filen-cli
     fuse3
+    killall
 
     # fonts
     lora
 
     # apps
+    sweethome3d.application
     authenticator
     recordbox
     rustdesk-flutter
