@@ -17,6 +17,7 @@ in
     ./modules/gnome.nix
     ./modules/cosmic.nix
     ./modules/ptyxis-generic-icon.nix
+    ./modules/sonos.nix
   ];
 
   nix = {
@@ -72,6 +73,7 @@ in
   services.xserver.enable = true;
   gnome-module.enable = true;
   cosmic-module.enable = true;
+  sonos-module.enable = true;
 
   # Enable Ozone Wayland support in Chromium and Electron based applications.
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
