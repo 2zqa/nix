@@ -210,6 +210,8 @@ in
     lora
 
     # apps
+    mitmproxy
+    p11-kit # For certificates
     sweethome3d.application
     authenticator
     recordbox
