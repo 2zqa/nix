@@ -98,6 +98,8 @@ in
     pulse.enable = true;
   };
 
+  security.sudo-rs.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.marijnk = {
     isNormalUser = true;
