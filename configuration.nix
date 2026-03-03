@@ -3,11 +3,6 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { pkgs, inputs, ... }:
-let
-  jdkWithFX = pkgs.openjdk.override {
-    enableJavaFX = true;
-  };
-in
 
 {
   imports = [
@@ -18,7 +13,15 @@ in
     ./modules/cosmic.nix
     ./modules/ptyxis-generic-icon.nix
     ./modules/virt.nix
+    ./modules/jdk-fx.nix
   ];
+
+  printing-module.enable = true;
+  gnome-module.enable = true;
+  cosmic-module.enable = false;
+  ptyxis-generic-icon-module.enable = false;
+  virt-module.enable = true;
+  jdk-fx-module.enable = false;
 
   nix = {
     settings = {
@@ -77,9 +80,6 @@ in
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  gnome-module.enable = true;
-  cosmic-module.enable = true;
-  virt-module.enable = true;
 
   # Enable Ozone Wayland support in Chromium and Electron based applications.
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -92,9 +92,6 @@ in
 
   # Configure console keymap
   console.keyMap = "us-acentos";
-
-  # Enable CUPS to print documents.
-  printing-module.enable = true;
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -123,7 +120,7 @@ in
   programs.bash = {
     shellAliases = {
       ls = "ls --color --group-directories-first";
-      wl-copy = "wl-copy --trim-newline";
+      c = "wl-copy --trim-newline";
       o = "xdg-open .";
       enix = "vim $HOME/nix/configuration.nix";
       emake = "(cd $HOME/nix; make)";
@@ -178,7 +175,6 @@ in
 
   programs.git.config.init.defaultBranch = "main";
   virtualisation.docker.enable = true;
-  virtualisation.waydroid.enable = true;
   services.flatpak.enable = true;
 
   # Allow Docker containers to reach host services
@@ -188,7 +184,6 @@ in
   services.xserver.excludePackages = [ pkgs.xterm ];
 
   hardware.i2c.enable = true;
-  ptyxis-generic-icon-module.enable = false;
   nixpkgs.overlays = [
     (final: prev: {
       gradia = prev.gradia.overrideAttrs (old: {
@@ -256,27 +251,23 @@ in
     # development
     git
     delta # beautiful git diffs
-    #unstable.flutter338
     unstable.opencode
     gcc
     kubectl
     kubelogin-oidc
     gnupg
-    waydroid
     gnumake
     natscli
     unstable.uv
     postgresql
     go
     nodejs_22
-    jdkWithFX
     unstable.python314
     unstable.zed-editor
     nixd # nix LSP
     nixfmt
     basedpyright
     unstable.vscodium
-    dbgate
   ];
 
   # This value determines the NixOS release from which the default
