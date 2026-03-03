@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 let
   jdkWithFX = pkgs.openjdk.override {
     enableJavaFX = true;
@@ -37,6 +37,12 @@ in
     };
 
     optimise.automatic = true;
+  };
+
+  system.autoUpgrade = {
+    enable = true;
+    flake = inputs.self.outPath;
+    dates = "12:30";
   };
 
   # Bootloader.
