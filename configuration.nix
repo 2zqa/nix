@@ -167,6 +167,15 @@
     ];
   };
   environment.sessionVariables.LIBVA_DRIVER_NAME = "iHD";
+  environment.sessionVariables.GST_PLUGIN_SYSTEM_PATH_1_0 =
+    pkgs.lib.makeSearchPathOutput "lib" "lib/gstreamer-1.0"
+      (
+        with pkgs.gst_all_1;
+        [
+          gst-plugins-good
+          gst-libav
+        ]
+      );
 
   # Enable dynamic linker to execute dynamic binaries.
   # Needed for Zed to download and execute language servers.

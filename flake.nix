@@ -7,11 +7,19 @@
   };
 
   outputs =
-    { nixpkgs, nixpkgs-unstable, ... }:
+    inputs@{
+      self,
+      nixpkgs,
+      nixpkgs-unstable,
+      ...
+    }:
     {
       nixosConfigurations = {
         # This should correspond to the hostname of the machine
         lonepine = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+          };
           modules = [
             ./configuration.nix
             ./hardware-configuration.nix

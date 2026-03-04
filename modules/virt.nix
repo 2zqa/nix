@@ -14,9 +14,9 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    virtualisation.libvirtd.enable = true;
     programs.virt-manager.enable = true;
     users.groups.libvirtd.members = [ "marijnk" ];
-    virtualisation.libvirtd.enable = true;
     virtualisation.spiceUSBRedirection.enable = true;
   };
 }
