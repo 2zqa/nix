@@ -20,7 +20,7 @@
   gnome-module.enable = true;
   cosmic-module.enable = false;
   ptyxis-generic-icon-module.enable = false;
-  virt-module.enable = true;
+  virt-module.enable = false;
   jdk-fx-module.enable = false;
 
   nix = {
@@ -240,6 +240,7 @@
     showtime
     gnome-obfuscate
     gnome-sound-recorder
+    gnome-boxes
     clapgrep
     thunderbird
     brave
