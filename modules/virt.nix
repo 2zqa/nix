@@ -1,4 +1,5 @@
 {
+  pkgs,
   config,
   lib,
   ...
@@ -17,5 +18,8 @@ in
     programs.virt-manager.enable = true;
     users.groups.libvirtd.members = [ "marijnk" ];
     virtualisation.spiceUSBRedirection.enable = true;
+    environment.systemPackages = with pkgs; [
+      virtiofsd
+    ];
   };
 }

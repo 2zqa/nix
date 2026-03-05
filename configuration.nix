@@ -20,7 +20,7 @@
   gnome-module.enable = true;
   cosmic-module.enable = false;
   ptyxis-generic-icon-module.enable = false;
-  virt-module.enable = false;
+  virt-module.enable = true;
   jdk-fx-module.enable = false;
 
   nix = {
@@ -219,11 +219,13 @@
     filen-cli
     fuse3
     killall
+    mp3fs
 
     # fonts
     lora
 
     # apps
+    vlc
     mitmproxy
     p11-kit # For certificates
     sweethome3d.application
@@ -240,7 +242,6 @@
     showtime
     gnome-obfuscate
     gnome-sound-recorder
-    gnome-boxes
     clapgrep
     thunderbird
     brave
