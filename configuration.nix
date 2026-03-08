@@ -261,6 +261,7 @@
     (callPackage ./derivations/tarug.nix { })
     (callPackage ./derivations/dynamic-wallpaper.nix { })
     (callPackage ./derivations/swagger-preview.nix { })
+    (callPackage ./derivations/apk-mitm.nix { })
 
     # development
     git
