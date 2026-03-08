@@ -220,6 +220,8 @@
     fuse3
     killall
     mp3fs
+    zip
+    unzip
 
     # fonts
     lora
