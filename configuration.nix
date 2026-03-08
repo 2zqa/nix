@@ -188,7 +188,11 @@
 
   # Allow Docker containers to reach host services
   # https://github.com/NixOS/nixpkgs/issues/417641#issuecomment-3403484920
-  networking.firewall.trustedInterfaces = [ "br+" ];
+  networking.firewall = {
+    enable = true;
+    # allowedTCPPorts = [ 8080 ];
+    trustedInterfaces = [ "br+" ];
+  };
 
   services.xserver.excludePackages = [ pkgs.xterm ];
 
