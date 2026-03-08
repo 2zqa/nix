@@ -260,6 +260,7 @@
     (callPackage ./derivations/avvie.nix { })
     (callPackage ./derivations/tarug.nix { })
     (callPackage ./derivations/dynamic-wallpaper.nix { })
+    (callPackage ./derivations/swagger-preview.nix { })
 
     # development
     git
