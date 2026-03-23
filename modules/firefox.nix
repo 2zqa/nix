@@ -25,21 +25,16 @@ in
       '';
 
       # Check about:policies#documentation for options.
-      profiles.default.search = {
-        force = true;
-        engines = {
-          "Jira LL" = {
-            urls = [
-              {
-                template = "https://voipgrid.atlassian.net/browse/LL-{searchTerms}";
-              }
-            ];
-            definedAliases = [ "ll" ];
-          };
-        };
-      };
-
       policies = {
+        SearchEngines = {
+          Add = [
+            {
+              Name = "JIRA";
+              URLTemplate = "https://voipgrid.atlassian.net/browse/LL-{searchTerms}";
+              Alias = "ll";
+            }
+          ];
+        };
         DisableTelemetry = true;
         DisableFirefoxStudies = true;
         EnableTrackingProtection = {
