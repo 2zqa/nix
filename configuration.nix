@@ -297,6 +297,10 @@
     nixfmt
     basedpyright
     unstable.vscodium
+
+    # ghostty
+    ghostty
+    nautilus-python
   ];
 
   # This value determines the NixOS release from which the default
