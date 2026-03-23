@@ -194,6 +194,13 @@
     trustedInterfaces = [ "br+" ];
   };
 
+  # Fix for certificates not being loaded when using uv
+  # https://discourse.nixos.org/t/fix-ssl-sslcertverificationerror-with-uvs-standalone-python/71138
+  environment.etc.certfile = {
+    source = "/etc/ssl/certs/ca-bundle.crt";
+    target = "ssl/cert.pem";
+  };
+
   services.xserver.excludePackages = [ pkgs.xterm ];
 
   hardware.i2c.enable = true;
