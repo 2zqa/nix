@@ -190,7 +190,12 @@
   # https://github.com/NixOS/nixpkgs/issues/417641#issuecomment-3403484920
   networking.firewall = {
     enable = true;
-    # allowedTCPPorts = [ 8080 ];
+    allowedTCPPorts = [
+      53317 # localsend
+    ];
+    allowedUDPPorts = [
+      53317
+    ];
     trustedInterfaces = [ "br+" ];
   };
 
@@ -230,7 +235,6 @@
     filen-cli
     fuse3
     killall
-    mp3fs
     zip
     unzip
 
@@ -241,7 +245,6 @@
     vlc
     mitmproxy
     p11-kit # For certificates
-    sweethome3d.application
     authenticator
     recordbox
     rustdesk-flutter
