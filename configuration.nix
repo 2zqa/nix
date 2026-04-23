@@ -245,7 +245,6 @@
     vlc
     mitmproxy
     p11-kit # For certificates
-    authenticator
     recordbox
     rustdesk-flutter
     gradia
@@ -278,6 +277,9 @@
     (callPackage ./derivations/apk-mitm.nix { })
 
     # development
+    javaPackages.compiler.temurin-bin.jdk-25
+    unstable.rustc
+    unstable.cargo
     git
     delta # beautiful git diffs
     unstable.opencode
