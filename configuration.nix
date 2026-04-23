@@ -275,6 +275,7 @@
     (callPackage ./derivations/dynamic-wallpaper.nix { })
     (callPackage ./derivations/swagger-preview.nix { })
     (callPackage ./derivations/apk-mitm.nix { })
+    (callPackage ./derivations/voipgrid-install-deps.nix { uv = unstable.uv; })
 
     # development
     javaPackages.compiler.temurin-bin.jdk-25
