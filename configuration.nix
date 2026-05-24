@@ -27,6 +27,7 @@
     settings = {
       auto-optimise-store = true;
       warn-dirty = false;
+      # download-buffer-size = 1073741824; # 1 GiB in bytes
 
       experimental-features = [
         "flakes"
