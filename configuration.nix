@@ -272,7 +272,10 @@
     jmc2obj
     (callPackage ./derivations/simplenote.nix { })
     (callPackage ./derivations/avvie.nix { })
-    (callPackage ./derivations/tarug.nix { })
+    (callPackage ./derivations/codd.nix {
+      rustc = unstable.rustc;
+      cargo = unstable.cargo;
+    })
     (callPackage ./derivations/dynamic-wallpaper.nix { })
     (callPackage ./derivations/swagger-preview.nix { })
     (callPackage ./derivations/apk-mitm.nix { })
