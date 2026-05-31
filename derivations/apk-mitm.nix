@@ -6,6 +6,10 @@
   jre_headless,
 }:
 
+# yarn2nix/yarn2nix-moretea and its tooling(mkYarnPackage, mkYarnModules, and fixup_yarn_lock)
+# have been removed as they were unmaintainable in nixpkgs. If you want to build with Yarn V1
+# going forward, use the hooks instead(yarnBuildHook, yarnConfigHook, and yarnInstallHook). See
+# the yarn v1 documentation in the nixpkgs manual for more details.
 mkYarnPackage rec {
   pname = "apk-mitm";
   version = "1.3.0";
