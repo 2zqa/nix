@@ -246,7 +246,6 @@
     vlc
     mitmproxy
     p11-kit # For certificates
-    recordbox
     rustdesk-flutter
     gradia
     pixelorama
