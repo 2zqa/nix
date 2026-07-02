@@ -282,6 +282,7 @@
     (callPackage ./derivations/voipgrid-install-deps.nix { uv = unstable.uv; })
 
     # development
+    open-policy-agent
     javaPackages.compiler.temurin-bin.jdk-25
     unstable.rustc
     unstable.cargo
