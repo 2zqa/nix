@@ -123,9 +123,8 @@
       ls = "ls --color --group-directories-first";
       c = "wl-copy --trim-newline";
       o = "xdg-open .";
-      enix = "vim $HOME/nix/configuration.nix";
-      emake = "(cd $HOME/nix; make)";
-      eupdate = "(cd $HOME/nix; make update)";
+      e = "zeditor $HOME/nix";
+      emake = "(cd $HOME/nix; make update)";
     };
 
     promptInit = ''
