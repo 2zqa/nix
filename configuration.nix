@@ -14,6 +14,7 @@
     ./modules/ptyxis-generic-icon.nix
     ./modules/virt.nix
     ./modules/jdk-fx.nix
+    ./modules/celeste.nix
   ];
 
   printing-module.enable = true;
@@ -22,6 +23,7 @@
   ptyxis-generic-icon-module.enable = false;
   virt-module.enable = true;
   jdk-fx-module.enable = false;
+  celeste-game.enable = true;
 
   nix = {
     settings = {
