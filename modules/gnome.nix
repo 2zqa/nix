@@ -79,18 +79,18 @@ with lib;
       gnome-connections
     ];
 
-    # Add volume slider
     nixpkgs.overlays = [
       (final: prev: {
         gnome-music = prev.gnome-music.overrideAttrs (old: {
-          patches = (old.patches or [ ]) ++ [
-            (prev.fetchpatch {
-              url = "https://gitlab.gnome.org/alpeshjamgade/gnome-music/-/commit/dab981a5a20db05f6c3e7abe362181b7ae835736.patch";
-              hash = "sha256-UkZ3bMMmjSJAM5lp1okqAwO0Pukx/zfo6m600LoQQlw=";
-            })
-          ];
+          src = prev.fetchFromGitHub {
+            owner = "GNOME";
+            repo = "gnome-music";
+            rev = "50.0";
+            sha256 = "sha256-16crhz+PsgNBmhHFhBXaKZAeEQmrKQ2XOQ6ka/4eH84=";
+          };
         });
       })
+
     ];
   };
 }
