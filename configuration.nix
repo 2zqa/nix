@@ -298,7 +298,7 @@
     unstable.uv
     postgresql
     go
-    nodejs_22
+    nodejs_24
     unstable.python314
     unstable.zed-editor
     nixd # nix LSP
