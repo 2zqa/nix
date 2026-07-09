@@ -12,7 +12,7 @@ let
 
   src = fetchurl {
     url = "https://github.com/Automattic/simplenote-electron/releases/download/v${version}/Simplenote-linux-${version}-x86_64.AppImage";
-    hash = "sha512-q6i9e9cnn6tYl9kWkEZLFqMWTDMIeut/36MCzgg0OnFL6GwVl84y7Cu972KQzG7mp5ghfbDKiT5cmRk4/xt3vw==";
+    hash = "sha512-jf9mnmf+5Xcowxgx7uizWVmv88gPdYwojQ2f+xhbqnXaHD3dSbcW2YdxiV3qjmFsRzUgwZvBVOGpOMvnSHuQDA==";
   };
 
   appimageContents = appimageTools.extract { inherit pname version src; };
