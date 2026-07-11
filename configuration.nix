@@ -277,6 +277,7 @@
       cargo = unstable.cargo;
     })
     (callPackage ./derivations/dynamic-wallpaper.nix { })
+    (callPackage ./derivations/touchhle.nix { })
     (callPackage ./derivations/swagger-preview.nix { })
     # (callPackage ./derivations/apk-mitm.nix { })
     (callPackage ./derivations/voipgrid-install-deps.nix { uv = unstable.uv; })

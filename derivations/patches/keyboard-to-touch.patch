@@ -1,0 +1,114 @@
+diff -ruN a/OPTIONS_HELP.txt b/OPTIONS_HELP.txt
+--- a/OPTIONS_HELP.txt	2026-07-10 21:50:26.056967966 +0200
++++ b/OPTIONS_HELP.txt	2026-07-10 21:51:25.133558527 +0200
+@@ -113,6 +113,26 @@
+         right analog stick (tap/hold by pressing the stick or right shoulder
+         button).
+ 
++    --keyboard-to-touch=...
++        Maps a key on the keyboard to a point on the simulated touch screen of
++        the device. Pressing the key will behave like touching that part of the
++        screen.
++
++        This is three parts separated by commas: the name of a key (as reported
++        by SDL2, e.g. Space, Return, Left, Right, A, B, 1, 2), the X co-ordinate
++        and the Y co-ordinate.
++        The co-ordinates are floating-point (decimal) numbers. 0,0 is the
++        top-left corner. The bottom-right corner is 320,480 if the app is in
++        portrait, and 480,320 if the app is in landscape.
++
++        For example, --keyboard-to-touch=Space,470,310 will make the space bar
++        simulate tapping in the bottom-right corner of the screen, for a
++        landscape game.
++
++        Multiple keys can be mapped by passing this option more than once, and
++        several mapped keys may be held simultaneously. This is not used by
++        default.
++
+     --dpad-to-touch=...
+         Maps a D-pad on a game controller to simulated finger movement within a
+         region of the simulated touch screen of the device. This is useful for
+diff -ruN a/src/options.rs b/src/options.rs
+--- a/src/options.rs	2026-07-10 21:50:26.052806948 +0200
++++ b/src/options.rs	2026-07-10 21:50:56.645801660 +0200
+@@ -44,6 +44,7 @@
+     pub x_tilt_offset: f32,
+     pub y_tilt_offset: f32,
+     pub button_to_touch: HashMap<Button, (f32, f32)>,
++    pub keyboard_to_touch: HashMap<String, (f32, f32)>,
+     pub dpad_to_touch: Option<(f32, f32, f32, f32)>,
+     pub stick_to_touch: Option<(f32, f32, f32, f32)>,
+     pub stabilize_virtual_cursor: Option<(f32, f32)>,
+@@ -75,6 +76,7 @@
+             x_tilt_offset: 0.0,
+             y_tilt_offset: 0.0,
+             button_to_touch: HashMap::new(),
++            keyboard_to_touch: HashMap::new(),
+             dpad_to_touch: None,
+             stick_to_touch: None,
+             stabilize_virtual_cursor: None,
+@@ -159,6 +161,23 @@
+                 .parse()
+                 .map_err(|_| "Invalid Y co-ordinate for --button-to-touch=".to_string())?;
+             self.button_to_touch.insert(button, (x, y));
++        } else if let Some(values) = arg.strip_prefix("--keyboard-to-touch=") {
++            let (key, coords) = values
++                .split_once(',')
++                .ok_or_else(|| "--keyboard-to-touch= requires three values".to_string())?;
++            let (x, y) = coords
++                .split_once(',')
++                .ok_or_else(|| "--keyboard-to-touch= requires three values".to_string())?;
++            if key.is_empty() {
++                return Err("Invalid key for --keyboard-to-touch=".to_string());
++            }
++            let x: f32 = x
++                .parse()
++                .map_err(|_| "Invalid X co-ordinate for --keyboard-to-touch=".to_string())?;
++            let y: f32 = y
++                .parse()
++                .map_err(|_| "Invalid Y co-ordinate for --keyboard-to-touch=".to_string())?;
++            self.keyboard_to_touch.insert(key.to_string(), (x, y));
+         } else if let Some(values) = arg.strip_prefix("--stick-to-touch=") {
+             let nums: [f32; 4] = values
+                 .split(',')
+diff -ruN a/src/window.rs b/src/window.rs
+--- a/src/window.rs	2026-07-10 21:50:26.054650898 +0200
++++ b/src/window.rs	2026-07-10 21:51:18.225375052 +0200
+@@ -76,6 +76,7 @@
+     Touch(i64),
+     VirtualCursor,
+     ButtonToTouch(crate::options::Button),
++    KeyboardToTouch(i32),
+     StickToTouch,
+     DpadToTouch,
+ }
+@@ -771,6 +772,29 @@
+                     log_dbg!("SDL TextInput {}", text);
+                     Event::TextInput(TextInputEvent::Text(text))
+                 }
++                E::KeyDown {
++                    keycode: Some(keycode),
++                    repeat: false,
++                    ..
++                } if options.keyboard_to_touch.contains_key(&keycode.name()) => {
++                    let &(x, y) = options.keyboard_to_touch.get(&keycode.name()).unwrap();
++                    let coords = transform_input_coords(self, (x, y), true);
++                    Event::TouchesDown(HashMap::from([(
++                        FingerId::KeyboardToTouch(i32::from(keycode)),
++                        coords,
++                    )]))
++                }
++                E::KeyUp {
++                    keycode: Some(keycode),
++                    ..
++                } if options.keyboard_to_touch.contains_key(&keycode.name()) => {
++                    let &(x, y) = options.keyboard_to_touch.get(&keycode.name()).unwrap();
++                    let coords = transform_input_coords(self, (x, y), true);
++                    Event::TouchesUp(HashMap::from([(
++                        FingerId::KeyboardToTouch(i32::from(keycode)),
++                        coords,
++                    )]))
++                }
+                 _ => continue,
+             })
+         }
