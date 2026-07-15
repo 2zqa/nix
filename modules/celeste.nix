@@ -13,12 +13,10 @@ with lib;
   };
 
   config = mkIf config.celeste-game.enable {
-    nixpkgs.config.allowUnfreePredicate =
-      pkg:
-      builtins.elem (lib.getName pkg) [
-        "celeste"
-        "celeste-unwrapped"
-      ];
+    allowedUnfreePackages = [
+      "celeste"
+      "celeste-unwrapped"
+    ];
     environment.systemPackages = with pkgs; [
       celestegame
     ];
