@@ -14,7 +14,6 @@
     ./modules/ptyxis-generic-icon.nix
     ./modules/virt.nix
     ./modules/jdk-fx.nix
-    ./modules/unfree.nix
     ./modules/celeste.nix
     ./modules/vault.nix
   ];

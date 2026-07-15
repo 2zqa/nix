@@ -13,7 +13,7 @@ with lib;
   };
 
   config = mkIf config.vault.enable {
-    allowedUnfreePackages = [ "vault" ];
+    nixpkgs.config.allowUnfreePackages = [ "vault" ];
     environment.systemPackages = with pkgs; [
       vault
     ];

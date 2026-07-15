@@ -13,7 +13,7 @@ with lib;
   };
 
   config = mkIf config.celeste-game.enable {
-    allowedUnfreePackages = [
+    nixpkgs.config.allowUnfreePackages = [
       "celeste"
       "celeste-unwrapped"
     ];
