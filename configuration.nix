@@ -241,6 +241,7 @@
     killall
     zip
     unzip
+    jq
 
     # fonts
     lora
