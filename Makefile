@@ -9,5 +9,8 @@ update:
 
 upgrade: update
 
+celeste:
+	nix-store --add-fixed sha256 ~/Documenten/celeste-linux.zip
+
 dry-build:
 	sudo nixos-rebuild dry-build --flake ~/nix#lonepine
