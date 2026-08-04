@@ -247,6 +247,7 @@
     lora
 
     # apps
+    localsend
     vlc
     mitmproxy
     p11-kit # For certificates
