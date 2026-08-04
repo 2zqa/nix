@@ -1,8 +1,9 @@
 .PHONY: default
 default:
+	@git add derivations/ modules/
 	sudo nixos-rebuild --flake ~/nix#lonepine switch
 
-update:
+update: celeste
 	sudo -v
 	nix flake update
 	sudo nixos-rebuild --flake ~/nix#lonepine switch
