@@ -16,6 +16,8 @@
     ./modules/jdk-fx.nix
     ./modules/celeste.nix
     ./modules/vault.nix
+    ./modules/android-studio.nix
+    ./modules/unfree.nix
   ];
 
   printing-module.enable = true;
@@ -26,6 +28,7 @@
   jdk-fx-module.enable = false;
   celeste-game.enable = true;
   vault.enable = true;
+  android-studio-module.enable = true;
 
   nix = {
     settings = {
