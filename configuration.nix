@@ -309,6 +309,7 @@
     nodejs_24
     unstable.python314
     unstable.zed-editor
+    bubblewrap # For Zed agent sandboxing
     nixd # nix LSP
     nixfmt
     basedpyright
