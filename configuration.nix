@@ -297,7 +297,6 @@
     unstable.cargo
     git
     delta # beautiful git diffs
-    unstable.opencode
     gcc
     kubectl
     kubelogin-oidc
@@ -313,7 +312,7 @@
     nixd # nix LSP
     nixfmt
     basedpyright
-    unstable.vscodium
+    # unstable.vscodium
   ];
 
   # This value determines the NixOS release from which the default
