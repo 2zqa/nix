@@ -30,7 +30,7 @@ stdenv.mkDerivation (finalAttrs: {
     owner = "anil-e";
     repo = "codd";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-y/f8zfZ6SPTbo5hLdWMNEaWxR6ZMu5H0r/3o1zgouX4=";
+    hash = "sha256-NV9Hu7sPSX0in8MqrJRjdSFy5nxM662Zzd26JUAY0UA=";
   };
 
   nativeBuildInputs = [
