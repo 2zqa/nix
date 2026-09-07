@@ -28,7 +28,7 @@
   jdk-fx-module.enable = false;
   celeste-game.enable = true;
   vault.enable = true;
-  android-studio-module.enable = true;
+  android-studio-module.enable = false;
 
   nix = {
     settings = {
@@ -277,24 +277,25 @@
     signal-desktop
     picard
     jmc2obj
-    (callPackage ./derivations/simplenote.nix { })
-    (callPackage ./derivations/avvie.nix { })
+    unstable.simplenote
+    # (callPackage ./derivations/avvie.nix { })
     (callPackage ./derivations/codd.nix {
       rustc = unstable.rustc;
       cargo = unstable.cargo;
     })
-    (callPackage ./derivations/dynamic-wallpaper.nix { })
-    (callPackage ./derivations/touchhle.nix { })
-    (callPackage ./derivations/swagger-preview.nix { })
+    # (callPackage ./derivations/dynamic-wallpaper.nix { })
+    # (callPackage ./derivations/touchhle.nix { })
+    # (callPackage ./derivations/swagger-preview.nix { })
     # (callPackage ./derivations/apk-mitm.nix { })
     (callPackage ./derivations/voipgrid-install-deps.nix { uv = unstable.uv; })
+    (callPackage ./derivations/madbfs.nix { })
 
     # development
     scrcpy
     open-policy-agent
     javaPackages.compiler.temurin-bin.jdk-25
-    unstable.rustc
-    unstable.cargo
+    # unstable.rustc
+    # unstable.cargo
     git
     delta # beautiful git diffs
     gcc
