@@ -279,10 +279,10 @@
     jmc2obj
     unstable.simplenote
     # (callPackage ./derivations/avvie.nix { })
-    (callPackage ./derivations/codd.nix {
-      rustc = unstable.rustc;
-      cargo = unstable.cargo;
-    })
+    # (callPackage ./derivations/codd.nix {
+    #   rustc = unstable.rustc;
+    #   cargo = unstable.cargo;
+    # })
     # (callPackage ./derivations/dynamic-wallpaper.nix { })
     # (callPackage ./derivations/touchhle.nix { })
     # (callPackage ./derivations/swagger-preview.nix { })

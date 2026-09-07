@@ -60,6 +60,8 @@ stdenv.mkDerivation (finalAttrs: {
     lockFile = "${finalAttrs.src}/Cargo.lock";
   };
 
+  enableParallelBuilding = true;
+
   doCheck = false;
 
   passthru.updateScript = nix-update-script { };
