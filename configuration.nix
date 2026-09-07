@@ -303,6 +303,8 @@
     kubelogin-oidc
     gnupg
     gnumake
+    just
+    just-lsp
     natscli
     unstable.uv
     postgresql
