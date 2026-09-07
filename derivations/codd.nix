@@ -24,7 +24,7 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "codd";
-  version = "0.6.0";
+  version = "0.14.0";
 
   src = fetchFromGitHub {
     owner = "anil-e";
