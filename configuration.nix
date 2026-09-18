@@ -292,6 +292,7 @@
     # (callPackage ./derivations/swagger-preview.nix { })
     # (callPackage ./derivations/apk-mitm.nix { })
     (callPackage ./derivations/voipgrid-install-deps.nix { uv = unstable.uv; })
+    (callPackage ./derivations/vault-login.nix { })
     (callPackage ./derivations/madbfs.nix { })
 
     # development
