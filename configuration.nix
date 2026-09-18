@@ -136,6 +136,7 @@
       o = "xdg-open .";
       e = "zeditor $HOME/nix";
       emake = "(cd $HOME/nix; make update)";
+      vl = "vault-login";
     };
 
     promptInit = ''
