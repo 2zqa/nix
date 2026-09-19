@@ -78,16 +78,5 @@ with lib;
       gnome-maps
       gnome-connections
     ];
-
-    nixpkgs.overlays = [
-      (final: prev: {
-        gnome-music = prev.gnome-music.overrideAttrs (old: {
-          patches = (old.patches or [ ]) ++ [
-            ./patches/gnome-music-albumart-debug.patch
-          ];
-        });
-      })
-
-    ];
   };
 }
