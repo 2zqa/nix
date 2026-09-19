@@ -78,19 +78,5 @@ with lib;
       gnome-maps
       gnome-connections
     ];
-
-    nixpkgs.overlays = [
-      (final: prev: {
-        gnome-music = prev.gnome-music.overrideAttrs (old: {
-          src = prev.fetchFromGitHub {
-            owner = "GNOME";
-            repo = "gnome-music";
-            rev = "50.0";
-            sha256 = "sha256-16crhz+PsgNBmhHFhBXaKZAeEQmrKQ2XOQ6ka/4eH84=";
-          };
-        });
-      })
-
-    ];
   };
 }
