@@ -250,6 +250,7 @@
     zip
     unzip
     jq
+    scrcpy
 
     # fonts
     lora
@@ -297,7 +298,7 @@
     (callPackage ./derivations/madbfs.nix { })
 
     # development
-    scrcpy
+    glab
     open-policy-agent
     javaPackages.compiler.temurin-bin.jdk-25
     # unstable.rustc
@@ -315,7 +316,7 @@
     unstable.uv
     postgresql
     go
-    nodejs_24
+    nodejs_26
     unstable.python314
     unstable.zed-editor
     bubblewrap # For Zed agent sandboxing
