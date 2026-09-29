@@ -25,6 +25,7 @@
             ./hardware-configuration.nix
             {
               nixpkgs.hostPlatform = "x86_64-linux";
+              nix.registry.unstable.flake = nixpkgs-unstable;
               nixpkgs.overlays = [
                 (final: prev: {
                   unstable = nixpkgs-unstable.legacyPackages.${prev.stdenv.hostPlatform.system};
