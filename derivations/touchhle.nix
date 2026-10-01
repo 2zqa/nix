@@ -12,14 +12,14 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "touchhle";
-  version = "0.2.3";
+  version = "0.3.0";
 
   src = fetchFromGitHub {
     owner = "touchHLE";
     repo = "touchHLE";
     tag = "v${finalAttrs.version}";
     fetchSubmodules = true;
-    hash = "sha256-UnXJdmG5P/tVp9CegvxzBUw9FOCZB/zvuWAS0vzfQ7Y=";
+    hash = "sha256-wR6x97jF5Aa4ktNianPdSUBBoRPmcLFAJdqyuhTjvgE=";
   };
 
   patches = [
