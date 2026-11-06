@@ -76,8 +76,10 @@
 
   # Bluetooth
   hardware.bluetooth.input = {
-    IdleTimeout = 0;
-    UserspaceHID = true;
+    General = {
+      IdleTimeout = 0;
+      UserspaceHID = true;
+    };
   };
 
   # Set your time zone.
