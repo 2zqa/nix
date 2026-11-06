@@ -72,6 +72,12 @@
     networkmanager-openvpn
   ];
 
+  # Bluetooth
+  hardware.bluetooth.input = {
+    IdleTimeout = 0;
+    UserspaceHID = true;
+  };
+
   # Set your time zone.
   time.timeZone = "Europe/Amsterdam";
 
@@ -114,6 +120,8 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+
+  services.fwupd.enable = true;
 
   security.sudo-rs.enable = true;
 
