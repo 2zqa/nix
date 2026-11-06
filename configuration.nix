@@ -44,7 +44,9 @@
 
     gc = {
       automatic = true;
-      # options = "--delete-older-than-5d";
+      dates = "weekly";
+      persistent = true; # catch up after a missed run (e.g. laptop was off)
+      options = "--delete-older-than 14d";
     };
 
     optimise.automatic = true;
@@ -203,7 +205,24 @@
   programs.nix-ld.enable = true;
 
   programs.git.config.init.defaultBranch = "main";
-  virtualisation.docker.enable = true;
+  virtualisation.docker = {
+    enable = true;
+    # Prune unused images/containers/networks/build cache older than a week.
+    # Volumes are deliberately not pruned (they can hold dev database data).
+    autoPrune = {
+      enable = true;
+      dates = "weekly";
+      flags = [
+        "--all"
+        "--filter=until=168h"
+      ];
+    };
+  };
+
+  services.journald.extraConfig = ''
+    SystemMaxUse=500M
+    MaxRetentionSec=1month
+  '';
   services.flatpak.enable = true;
 
   # Allow Docker containers to reach host services
